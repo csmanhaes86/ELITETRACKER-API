@@ -1,0 +1,28 @@
+{
+  "name": "elitetracker-api",
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts"
+  },
+  "keywords": [
+    "api",
+    "express",
+    "typescript",
+    "elite-tracker"
+  ],
+  "author": {
+    "name": "Charles Manhães",
+    "url": "https://github.com/csmanhaes86"
+  },
+  "license": "ISC",
+  "description": "API para o Elite Tracker",
+  "devDependencies": {
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.2",
+    "express": "^5.1.0"
+  }
+}
