@@ -1,9 +1,9 @@
 import express from "express";
 
-const app = express();
+import { routes } from "./routes";
 
-app.get("/", (request, response) => {
-  response.send("Hello Express + TypeScript");
-});
+const app = express();
+app.use(express.json());
+app.use(routes);
 
 app.listen(4000, () => console.log("🚀 Server is running at port 4000!"));
