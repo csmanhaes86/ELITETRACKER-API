@@ -1,17 +1,16 @@
 import type { Request, Response } from "express";
 
+import { habitModel } from "../models/habit.model";
 
 export class HabitsController {
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
-  private readonly habits: any[] = []
-
-  store = (request: Request, response: Response): Response => {
+  store = async (request: Request, response: Response) => {
     const { name } = request.body;
 
-    const newHabits = name;
-
-    this.habits.push(newHabits);
+    const newHabits = await habitModel.create({
+      name,
+      completedDates: [],
+    });
 
     return response.status(201).json(newHabits);
-  }
+  };
 }
