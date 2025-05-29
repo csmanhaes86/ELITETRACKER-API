@@ -1,23 +1,16 @@
 import { Router } from "express";
+import { HabitsController } from "./controllers/habits.controller";
 
-import packgeJson from "../package.json";
+import packageJson from "../package.json";
 
 export const routes = Router();
 
-const habits = [];
+const habitsController = new HabitsController();
 
 routes.get("/", (request, response) => {
-  const { name, description, version } = packgeJson;
+  const { name, description, version } = packageJson;
 
   response.status(200).json({ name, description, version });
 });
-
-routes.post("/habits", (request, response) => {
-  const { name } = request.body;
-
-  const newHabits = name;
-
-  habits.push(newHabits);
-
-  response.status(201).json(newHabits);
-});
+// @ts-ignore
+routes.post("/habits", habitsController.store);
